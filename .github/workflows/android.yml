@@ -17,27 +17,26 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Install Android SDK
+      - name: Set up Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Install SDK 34 + Build Tools
+      - name: Install SDK packages
         run: sdkmanager "platforms;android-34" "platform-tools" "build-tools;34.0.0"
 
       - name: Create local.properties
-        run: echo "sdk.dir=$ANDROID_HOME" > project_ready_builder/project/local.properties
+        run: echo "sdk.dir=$ANDROID_HOME" > local.properties
+        working-directory: project_ready_builder/project
 
       - name: Grant execute permission for gradlew
-        run: chmod +x project_ready_builder/project/gradlew
+        run: chmod +x ./gradlew
+        working-directory: project_ready_builder/project
 
       - name: Build APK
-        run: cd project_ready_builder/project && ./gradlew assembleDebug --stacktrace
+        run: ./gradlew assembleDebug --stacktrace
+        working-directory: project_ready_builder/project
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: app-debug.apk
           path: project_ready_builder/project/app/build/outputs/apk/debug/app-debug.apk
-
-      - name: Show direct download link
-        run: |
-          echo "### ✅ [Download APK](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})" >> $GITHUB_STEP_SUMMARY
