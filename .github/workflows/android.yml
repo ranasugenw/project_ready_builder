@@ -7,10 +7,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: project_ready_builder/project
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -24,21 +20,22 @@ jobs:
       - name: Install Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Install SDK 34
-        run: |
-          sdkmanager "platforms;android-34" "platform-tools" "build-tools;34.0.0"
+      - name: Install SDK 34 + Build Tools
+        run: sdkmanager "platforms;android-34" "platform-tools" "build-tools;34.0.0"
 
       - name: Create local.properties
+        working-directory: project_ready_builder/project
         run: echo "sdk.dir=$ANDROID_HOME" > local.properties
 
       - name: Grant execute permission for gradlew
+        working-directory: project_ready_builder/project
         run: chmod +x ./gradlew
 
       - name: Build APK
+        working-directory: project_ready_builder/project
         run: ./gradlew assembleDebug --stacktrace
 
       - name: Upload APK
-        id: upload
         uses: actions/upload-artifact@v4
         with:
           name: app-debug.apk
