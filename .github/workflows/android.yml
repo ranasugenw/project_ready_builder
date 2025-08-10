@@ -35,7 +35,7 @@ jobs:
       - name: Install Gradle
         run: sudo apt-get install gradle -y
 
-      - name: Build APK
+      - name: Build APK without gradlew
         working-directory: project_ready_builder/project_ready_builder/project
         run: gradle assembleDebug --stacktrace
 
