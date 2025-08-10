@@ -1,6 +1,9 @@
 name: Build Android APK
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -14,37 +17,30 @@ jobs:
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
-          java-version: '17'
-          distribution: 'temurin'
+          distribution: temurin
+          java-version: 17
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
-        with:
-          api-level: 34
-          build-tools: "34.0.0"
-          components: platform-tools, build-tools;34.0.0, platforms;android-34
+
+      - name: Install required SDK packages
+        run: |
+          sdkmanager "platforms;android-34" "platform-tools" "build-tools;34.0.0"
 
       - name: Create local.properties
+        working-directory: project_ready_builder/project_ready_builder/project
         run: |
-          SDK_PATH="${ANDROID_SDK_ROOT:-$HOME/Android/Sdk}"
-          echo "sdk.dir=${SDK_PATH}" > project_ready_builder/project/local.properties
+          echo "sdk.dir=$ANDROID_HOME" > local.properties
 
-      - name: Install Gradle (if wrapper missing)
-        run: sudo apt-get update && sudo apt-get install -y gradle
-
-      - name: Generate Gradle wrapper
-        working-directory: project_ready_builder/project
-        run: gradle wrapper
-
-      - name: Grant execute permission for gradlew
-        run: chmod +x project_ready_builder/project/gradlew
+      - name: Install Gradle
+        run: sudo apt-get install gradle -y
 
       - name: Build APK
-        working-directory: project_ready_builder/project
-        run: ./gradlew assembleDebug --stacktrace
+        working-directory: project_ready_builder/project_ready_builder/project
+        run: gradle assembleDebug --stacktrace
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: app-debug.apk
-          path: project_ready_builder/project/app/build/outputs/apk/debug/app-debug.apk
+          path: project_ready_builder/project_ready_builder/project/app/build/outputs/apk/debug/app-debug.apk
