@@ -1,4 +1,3 @@
-
 name: Build Android APK
 
 on:
@@ -21,17 +20,20 @@ jobs:
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Install SDK packages
-        run: sdkmanager "platforms;android-34" "platform-tools" "build-tools;34.0.0"
+      # Install the SDK and Build-tools matching your project
+      - name: Install required SDK packages
+        run: |
+          sdkmanager "platforms;android-34" "platform-tools" "build-tools;34.0.0"
 
-      - name: Install Gradle
-        uses: gradle/actions/setup-gradle@v3
+      # Go to the exact folder where gradlew is
+      - name: Grant execute permission for gradlew
+        run: chmod +x project_ready_builder/project_ready_builder/project/gradlew
 
       - name: Create local.properties
         run: echo "sdk.dir=$ANDROID_HOME" > project_ready_builder/project_ready_builder/project/local.properties
 
       - name: Build APK
-        run: cd project_ready_builder/project_ready_builder/project && gradle assembleDebug --stacktrace
+        run: cd project_ready_builder/project_ready_builder/project && ./gradlew assembleDebug --stacktrace
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
