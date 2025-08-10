@@ -24,16 +24,13 @@ jobs:
         run: sdkmanager "platforms;android-34" "platform-tools" "build-tools;34.0.0"
 
       - name: Create local.properties
-        working-directory: project_ready_builder/project
-        run: echo "sdk.dir=$ANDROID_HOME" > local.properties
+        run: echo "sdk.dir=$ANDROID_HOME" > project_ready_builder/project/local.properties
 
       - name: Grant execute permission for gradlew
-        working-directory: project_ready_builder/project
-        run: chmod +x ./gradlew
+        run: chmod +x project_ready_builder/project/gradlew
 
       - name: Build APK
-        working-directory: project_ready_builder/project
-        run: ./gradlew assembleDebug --stacktrace
+        run: cd project_ready_builder/project && ./gradlew assembleDebug --stacktrace
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
