@@ -1,9 +1,6 @@
 name: Build Android APK
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 jobs:
@@ -12,25 +9,31 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
-          distribution: 'temurin'
           java-version: '17'
+          distribution: 'temurin'
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x project_ready_builder/project_ready_builder/project/gradlew
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install SDK packages
+        run: sdkmanager "platforms;android-34" "platform-tools" "build-tools;34.0.0"
+
+      - name: Install Gradle
+        uses: gradle/actions/setup-gradle@v3
+
+      - name: Create local.properties
+        run: echo "sdk.dir=$ANDROID_HOME" > project_ready_builder/project_ready_builder/project/local.properties
 
       - name: Build APK
-        run: |
-          cd project_ready_builder/project_ready_builder/project
-          ./gradlew assembleDebug --stacktrace
+        run: cd project_ready_builder/project_ready_builder/project && gradle assembleDebug --stacktrace
 
       - name: Upload APK
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: app-debug.apk
           path: project_ready_builder/project_ready_builder/project/app/build/outputs/apk/debug/app-debug.apk
-        
