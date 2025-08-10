@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Theme Colors -->
+    <color name="primary_neon">#00E5FF</color>
+    <color name="primary_dark">#0097A7</color>
+    <color name="secondary_neon">#64FFDA</color>
+    
+    <!-- Background Colors -->
+    <color name="background_dark">#121212</color>
+    <color name="surface_dark">#1E1E1E</color>
+    <color name="card_background">#2A2A2A</color>
+    
+    <!-- Text Colors -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B0B0B0</color>
+    <color name="text_disabled">#757575</color>
+    
+    <!-- Status Colors -->
+    <color name="status_active">#4CAF50</color>
+    <color name="status_inactive">#757575</color>
+    <color name="status_warning">#FF9800</color>
+    <color name="status_error">#F44336</color>
+    
+    <!-- Signal Colors -->
+    <color name="signal_buy">#4CAF50</color>
+    <color name="signal_sell">#F44336</color>
+    <color name="signal_hold">#FF9800</color>
+    
+    <!-- Accent Colors -->
+    <color name="accent_green">#00C853</color>
+    <color name="accent_red">#D50000</color>
+    <color name="accent_orange">#FF6D00</color>
+    <color name="accent_purple">#AA00FF</color>
+    
+    <!-- Overlay Colors -->
+    <color name="overlay_background">#CC000000</color>
+    <color name="overlay_control">#E6000000</color>
+    
+    <!-- Button Colors -->
+    <color name="button_primary">#00E5FF</color>
+    <color name="button_secondary">#424242</color>
+    <color name="button_outline">#00000000</color>
+    
+    <!-- Standard Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+</resources>

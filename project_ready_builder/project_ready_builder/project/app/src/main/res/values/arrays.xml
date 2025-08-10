@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="target_apps">
+        <item>CoinSwitch Pro</item>
+        <item>Groww</item>
+        <item>Binance</item>
+        <item>WazirX</item>
+        <item>Zerodha Kite</item>
+        <item>Upstox</item>
+        <item>Other</item>
+    </string-array>
+    
+    <string-array name="timeframes">
+        <item>1m</item>
+        <item>2m</item>
+        <item>3m</item>
+        <item>5m</item>
+        <item>10m</item>
+        <item>15m</item>
+        <item>30m</item>
+        <item>1h</item>
+        <item>2h</item>
+        <item>4h</item>
+        <item>1d</item>
+    </string-array>
+</resources>

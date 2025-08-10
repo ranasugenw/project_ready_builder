@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    
+    <path
+        android:fillColor="@color/primary_neon"
+        android:pathData="M12,2C6.48,2 2,6.48 2,12s4.48,10 10,10 10,-4.48 10,-10S17.52,2 12,2zM12,20c-4.41,0 -8,-3.59 -8,-8s3.59,-8 8,-8 8,3.59 8,8 -3.59,8 -8,8z"/>
+    
+    <path
+        android:fillColor="@color/primary_neon"
+        android:pathData="M8,10c0.83,0 1.5,-0.67 1.5,-1.5S8.83,7 8,7s-1.5,0.67 -1.5,1.5S7.17,10 8,10z"/>
+    
+    <path
+        android:fillColor="@color/primary_neon"
+        android:pathData="M16,10c0.83,0 1.5,-0.67 1.5,-1.5S16.83,7 16,7s-1.5,0.67 -1.5,1.5S15.17,10 16,10z"/>
+    
+    <path
+        android:fillColor="@color/primary_neon"
+        android:pathData="M12,17.5c2.33,0 4.31,-1.46 5.11,-3.5H6.89C7.69,16.04 9.67,17.5 12,17.5z"/>
+    
+    <!-- AI Circuit Pattern -->
+    <path
+        android:strokeColor="@color/secondary_neon"
+        android:strokeWidth="0.5"
+        android:pathData="M6,12L8,12M10,12L12,12M14,12L16,12M18,12L20,12"/>
+    
+    <path
+        android:strokeColor="@color/secondary_neon"
+        android:strokeWidth="0.5"
+        android:pathData="M12,6L12,8M12,10L12,12M12,14L12,16M12,18L12,20"/>
+    
+</vector>

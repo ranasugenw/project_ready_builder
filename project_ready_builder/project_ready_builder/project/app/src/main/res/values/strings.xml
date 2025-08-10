@@ -1,0 +1,99 @@
+<resources>
+    <string name="app_name">Jarvis Pattern Overlay</string>
+    
+    <!-- General -->
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="settings">Settings</string>
+    <string name="calibrate">Calibrate</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="done">Done</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="skip">Skip</string>
+    
+    <!-- MainActivity -->
+    <string name="start_analysis">Start Analysis</string>
+    <string name="stop_analysis">Stop Analysis</string>
+    <string name="detected_patterns">Detected Patterns</string>
+    <string name="current_signal">Current Signal</string>
+    <string name="no_patterns">No patterns detected</string>
+    <string name="no_signal">No active signal</string>
+    <string name="backtest">Backtest</string>
+    <string name="journal">Journal</string>
+    
+    <!-- Onboarding -->
+    <string name="welcome_title">Welcome to Jarvis</string>
+    <string name="welcome_description">Advanced trading pattern detection using computer vision and machine learning</string>
+    <string name="permissions_title">Permissions Required</string>
+    <string name="permissions_description">We need screen capture and overlay permissions to analyze trading charts</string>
+    <string name="setup_title">Setup Complete</string>
+    <string name="setup_description">You\'re ready to start detecting trading patterns in real-time</string>
+    
+    <!-- Calibration -->
+    <string name="calibration_title">Chart Calibration</string>
+    <string name="calibration_instruction">Draw a rectangle around the price chart area</string>
+    <string name="calibration_tip">Make sure to include price axis but exclude timeframe buttons</string>
+    <string name="set_price_range">Set Price Range</string>
+    <string name="top_price">Top Price</string>
+    <string name="bottom_price">Bottom Price</string>
+    <string name="save_calibration">Save Calibration</string>
+    
+    <!-- Settings -->
+    <string name="target_app">Target Trading App</string>
+    <string name="chart_theme">Chart Theme</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+    <string name="timeframes">Timeframes</string>
+    <string name="capture_settings">Capture Settings</string>
+    <string name="fps">Frames Per Second</string>
+    <string name="pattern_settings">Pattern Settings</string>
+    <string name="min_confidence">Minimum Confidence</string>
+    <string name="indicator_settings">Indicator Settings</string>
+    <string name="rsi_period">RSI Period</string>
+    <string name="macd_fast">MACD Fast</string>
+    <string name="macd_slow">MACD Slow</string>
+    <string name="macd_signal">MACD Signal</string>
+    
+    <!-- Patterns -->
+    <string name="bullish_engulfing">Bullish Engulfing</string>
+    <string name="bearish_engulfing">Bearish Engulfing</string>
+    <string name="hammer">Hammer</string>
+    <string name="shooting_star">Shooting Star</string>
+    <string name="doji">Doji</string>
+    <string name="morning_star">Morning Star</string>
+    <string name="evening_star">Evening Star</string>
+    <string name="double_top">Double Top</string>
+    <string name="double_bottom">Double Bottom</string>
+    <string name="head_shoulders">Head and Shoulders</string>
+    
+    <!-- Signals -->
+    <string name="buy_signal">BUY</string>
+    <string name="sell_signal">SELL</string>
+    <string name="hold_signal">HOLD</string>
+    <string name="entry_price">Entry Price</string>
+    <string name="stop_loss">Stop Loss</string>
+    <string name="target_1">Target 1</string>
+    <string name="target_2">Target 2</string>
+    <string name="confidence">Confidence</string>
+    <string name="risk_reward">Risk:Reward</string>
+    
+    <!-- Errors -->
+    <string name="error_permissions">Required permissions not granted</string>
+    <string name="error_screen_capture">Failed to start screen capture</string>
+    <string name="error_pattern_detection">Pattern detection error</string>
+    <string name="error_calibration">Calibration failed</string>
+    <string name="error_opencv">OpenCV initialization failed</string>
+    
+    <!-- Notifications -->
+    <string name="notification_analyzing">Analyzing trading patterns…</string>
+    <string name="notification_pattern_found">New trading pattern detected</string>
+    <string name="notification_signal_generated">New trading signal generated</string>
+    
+    <!-- Tips -->
+    <string name="tip_calibration">For best results, calibrate the chart area carefully and ensure good lighting</string>
+    <string name="tip_theme">Match the chart theme setting with your trading app for better accuracy</string>
+    <string name="tip_timeframe">Use higher timeframes (5m+) for more reliable pattern detection</string>
+    <string name="tip_battery">Consider connecting to power during extended analysis sessions</string>
+</resources>
