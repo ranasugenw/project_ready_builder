@@ -22,16 +22,15 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Change to project directory
-        run: cd project_ready_builder/project_ready_builder/project && pwd
+      - name: Install Gradle
+        run: sudo apt-get update && sudo apt-get install -y gradle
 
       - name: Build APK
         working-directory: project_ready_builder/project_ready_builder/project
-        run: |
-          gradle build
+        run: gradle assembleRelease
 
       - name: Upload APK
         uses: actions/upload-artifact@v3
         with:
-          name: app-apk
-          path: project_ready_builder/project_ready_builder/project/app/build/outputs/apk//*.apk
+          name: app-release-apk
+          path: project_ready_builder/project_ready_builder/project/app/build/outputs/apk/release/*.apk
