@@ -1,3 +1,4 @@
+
 name: Build Android APK
 
 on:
@@ -29,8 +30,8 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x project_ready_builder/project_ready_builder/project/gradlew
 
-      - name: Build APK
-        run: cd project_ready_builder/project_ready_builder/project && ./gradlew assembleDebug --stacktrace
+      - name: Build APK (Debug with full logs)
+        run: cd project_ready_builder/project_ready_builder/project && ./gradlew assembleDebug --stacktrace --info --debug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
