@@ -4,9 +4,7 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
   build:
@@ -25,12 +23,12 @@ jobs:
       - name: Install Gradle
         run: sudo apt-get update && sudo apt-get install -y gradle
 
-      - name: Build APK
+      - name: Build Debug APK
         working-directory: project_ready_builder/project_ready_builder/project
-        run: gradle assembleRelease
+        run: gradle assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v3
         with:
-          name: app-release-apk
-          path: project_ready_builder/project_ready_builder/project/app/build/outputs/apk/release/*.apk
+          name: debug-apk
+          path: project_ready_builder/project_ready_builder/project/app/build/outputs/apk/debug/*.apk
