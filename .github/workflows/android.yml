@@ -35,9 +35,13 @@ jobs:
       - name: Install Gradle
         run: sudo apt-get install gradle -y
 
-      - name: Build APK
+      - name: Build APK (show full error)
         working-directory: project_ready_builder/project_ready_builder/project
-        run: gradle assembleDebug --stacktrace
+        run: |
+          set -o pipefail
+          gradle assembleDebug --stacktrace --info --warning-mode=all | tee build.log
+          echo "===== LAST 50 LINES OF BUILD LOG ====="
+          tail -n 50 build.log
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
