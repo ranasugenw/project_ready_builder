@@ -28,6 +28,7 @@ jobs:
           sdkmanager "platforms;android-34" "platform-tools" "build-tools;34.0.0"
 
       - name: Create local.properties
+        working-directory: project_ready_builder/project_ready_builder/project
         run: |
           echo "sdk.dir=$ANDROID_HOME" > local.properties
 
@@ -35,10 +36,11 @@ jobs:
         run: sudo apt-get install gradle -y
 
       - name: Build APK
+        working-directory: project_ready_builder/project_ready_builder/project
         run: gradle assembleDebug --stacktrace
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: app-debug.apk
-          path: app/build/outputs/apk/debug/app-debug.apk
+          path: project_ready_builder/project_ready_builder/project/app/build/outputs/apk/debug/app-debug.apk
